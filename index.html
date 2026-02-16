@@ -3,136 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunar Howl | The Inferno Room</title>
+    <title>Lunar Howl | Underground Techno Collective</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: 'Arial Black', Arial, sans-serif; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
             background: #000; 
             color: #fff; 
-            text-align: center;
+            line-height: 1.6;
         }
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle at center, #2a0000 0%, #000 100%);
-            padding: 2rem;
+        
+        /* Navigation */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(0,0,0,0.95); 
+            border-bottom: 2px solid #ff0000; 
+            padding: 1rem; 
+            z-index: 1000; 
         }
-        .logo {
-            width: 300px;
-            height: 300px;
-            margin-bottom: 2rem;
+        nav .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo-text { 
+            font-weight: bold; 
+            font-size: 1.5rem; 
+            color: #ff0000; 
+            text-decoration: none; 
+        }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        .nav-links a:hover { color: #ff0000; }
+        
+        /* Hero */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            padding-top: 80px; 
+            background: radial-gradient(circle at center, #1a0000 0%, #000 100%); 
+        }
+        .logo-box { 
+            width: 280px; 
+            height: 280px; 
+            margin: 0 auto 2rem; 
             border-radius: 50%;
-            border: 3px solid #ff0000;
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(255,0,0,0.5);
+            border: 3px solid #ff0000;
+            box-shadow: 0 0 40px rgba(255,0,0,0.5);
         }
-        .logo img {
+        .logo-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        h1 {
-            color: #ff0000;
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+        h1 { 
+            color: #ff0000; 
+            font-size: 3rem; 
+            margin-bottom: 0.5rem; 
             text-transform: uppercase;
             letter-spacing: 5px;
         }
-        .subtitle {
-            color: #888;
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
+        .subtitle { color: #888; margin-bottom: 2rem; }
+        .btn { 
+            display: inline-block; 
+            padding: 1rem 2rem; 
+            border: 2px solid #ff0000; 
+            color: #ff0000; 
+            text-decoration: none; 
+            margin: 0.5rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
         }
-        .event-box {
+        .btn:hover { background: #ff0000; color: #000; }
+        
+        /* Sections */
+        section { 
+            padding: 4rem 2rem; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+        }
+        h2 { 
+            color: #ff0000; 
+            font-size: 2rem; 
+            margin-bottom: 2rem; 
+            border-bottom: 2px solid #ff0000; 
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        /* Event */
+        .event-featured {
             background: linear-gradient(135deg, #1a0000 0%, #000 100%);
             border: 2px solid #ff0000;
             padding: 3rem;
-            max-width: 600px;
-            width: 100%;
+            text-align: center;
             box-shadow: 0 0 30px rgba(255,0,0,0.3);
         }
-        .event-date {
+        .event-date-big {
             font-size: 4rem;
             color: #ff0000;
             font-weight: bold;
-            margin-bottom: 1rem;
         }
-        .event-name {
+        .event-name-big {
             font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 1rem;
+            margin: 1rem 0;
             text-transform: uppercase;
         }
         .event-location {
             color: #888;
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
         .event-time {
             color: #ff0000;
             font-size: 1.5rem;
             font-weight: bold;
         }
-        .btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 3rem;
-            background: #ff0000;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            transition: all 0.3s;
+        
+        /* About */
+        .about-text p {
+            color: #ccc;
+            margin-bottom: 1rem;
+            line-height: 1.8;
         }
-        .btn:hover {
-            background: #fff;
-            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        .about-text strong { color: #ff0000; }
+        
+        /* Contact */
+        .contact-info p {
+            margin-bottom: 1rem;
+            color: #ccc;
         }
-        .contact {
-            margin-top: 3rem;
-            color: #666;
-        }
-        .contact a {
+        .contact-info a {
             color: #ff0000;
             text-decoration: none;
         }
-        @media (max-width: 600px) {
-            .logo { width: 200px; height: 200px; }
+        
+        /* Footer */
+        footer {
+            background: #000;
+            border-top: 1px solid #333;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+        }
+        footer .logo-footer {
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
             h1 { font-size: 2rem; }
-            .event-date { font-size: 2.5rem; }
-            .event-name { font-size: 1.5rem; }
+            .logo-box { width: 200px; height: 200px; }
+            .event-date-big { font-size: 2.5rem; }
+            .event-name-big { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <div class="logo">
-            <img src="IMG_6358.PNG" alt="Lunar Howl Logo">
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo-text">LUNAR HOWL</a>
+            <div class="nav-links">
+                <a href="#event">EVENT</a>
+                <a href="#about">ABOUT</a>
+                <a href="#contact">CONTACT</a>
+            </div>
         </div>
-        
-        <h1>LUNAR HOWL</h1>
-        <p class="subtitle">Underground Techno Collective</p>
-        
-        <div class="event-box">
-            <div class="event-date">21 MARCH 2026</div>
-            <div class="event-name">THE INFERNO ROOM</div>
-            <div class="event-location">RUMBA</div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div>
+            <div class="logo-box">
+                <img src="IMG_6358.PNG" alt="Lunar Howl Logo">
+            </div>
+            <h1>LUNAR HOWL</h1>
+            <p class="subtitle">Underground Techno Collective</p>
+            <a href="#event" class="btn">UPCOMING EVENT</a>
+            <a href="#contact" class="btn">JOIN THE PACK</a>
+        </div>
+    </section>
+
+    <!-- Featured Event -->
+    <section id="event">
+        <h2>THE INFERNO ROOM</h2>
+        <div class="event-featured">
+            <div class="event-date-big">21 MARCH 2026</div>
+            <div class="event-name-big">THE INFERNO ROOM</div>
+            <div class="event-location">@ RUMBA</div>
             <div class="event-time">DOORS 22:00 - 06:00</div>
-            
-            <a href="mailto:lunar.howl2025@gmail.com" class="btn">GET TICKETS</a>
+            <p style="color: #888; margin-top: 2rem; font-style: italic;">A refined techno experience</p>
+            <a href="mailto:lunar.howl2025@gmail.com" class="btn" style="margin-top: 2rem;">GET TICKETS</a>
         </div>
-        
-        <div class="contact">
-            <p>Contact: <a href="mailto:lunar.howl2025@gmail.com">lunar.howl2025@gmail.com</a></p>
-            <p style="margin-top: 0.5rem;">Tel: 0456/90.18.90</p>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>ABOUT US</h2>
+        <div class="about-text">
+            <p><strong>Lunar Howl</strong> is a non-profit association (feitelijke vereniging) dedicated to nurturing emerging talent in the electronic music scene. Founded in Borgloon, Belgium.</p>
+            <p>We believe in the raw power of underground culture. Through coaching, showcases, workshops, and events, we create a safe environment where talent can grow.</p>
+            <p>Our mission: <em>support the next generation of techno artists</em>.</p>
         </div>
-    </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>JOIN THE PACK</h2>
+        <div class="contact-info">
+            <p>Want to play at our events? Contact us:</p>
+            <p><strong>Email:</strong> <a href="mailto:lunar.howl2025@gmail.com">lunar.howl2025@gmail.com</a></p>
+            <p><strong>Phone:</strong> 0456/90.18.90</p>
+            <p><strong>Address:</strong> Tongersesteenweg 173, 3840 Borgloon</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo-footer">LUNAR HOWL</div>
+        <p>Feitelijke Vereniging zonder Winstoogmerk</p>
+        <p>&copy; 2025 Lunar Howl. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
