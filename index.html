@@ -3,333 +3,908 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunar Howl Events | The Inferno Room</title>
+    <title>LUNAR HOWL EVENTS | Feitelijke Vereniging Borgloon</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background: #000; 
-            color: #fff; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        nav { 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            background: rgba(0,0,0,0.95); 
-            border-bottom: 2px solid #ff0000; 
-            padding: 1rem; 
-            z-index: 1000; 
-        }
-        nav .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        .logo-text { 
-            font-weight: bold; 
-            font-size: 1.3rem; 
-            color: #ff0000; 
-            text-decoration: none; 
-        }
-        .nav-links { display: flex; gap: 2rem; }
-        .nav-links a { 
-            color: #fff; 
-            text-decoration: none; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-        .nav-links a:hover { color: #ff0000; }
-        .hero { 
-            min-height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            padding-top: 80px; 
-            background: radial-gradient(circle at center, #1a0000 0%, #000 100%); 
-        }
-        .logo-box { 
-            width: 280px; 
-            height: 280px; 
-            margin: 0 auto 2rem; 
-            border-radius: 50%;
+
+        /* Header & Logo */
+        header {
+            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff0000;
+            position: relative;
             overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,0,0,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .logo-container {
+            max-width: 300px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .logo-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: #000;
             border: 3px solid #ff0000;
-            box-shadow: 0 0 40px rgba(255,0,0,0.5);
-        }
-        .logo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        h1 { 
-            color: #ff0000; 
-            font-size: 2.5rem; 
-            margin-bottom: 0.5rem; 
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        .subtitle { color: #888; margin-bottom: 2rem; font-size: 1.1rem; }
-        .btn { 
-            display: inline-block; 
-            padding: 1rem 2rem; 
-            border: 2px solid #ff0000; 
-            color: #ff0000; 
-            text-decoration: none; 
-            margin: 0.5rem; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-        .btn:hover { 
-            background: #ff0000; 
-            color: #000; 
-        }
-        .btn-solid {
-            background: #ff0000;
-            color: #000;
-        }
-        .btn-solid:hover {
-            background: #fff;
-            border-color: #fff;
-        }
-        .social-links {
-            margin-top: 2rem;
+            border-radius: 50%;
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        .social-links a {
-            display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
-            border: 2px solid #ff0000;
+            font-size: 1.2em;
             color: #ff0000;
+            box-shadow: 0 0 30px rgba(255,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-placeholder::after {
+            content: '🐺';
+            font-size: 4em;
+            filter: drop-shadow(0 0 10px #ff0000);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 20px 0 10px;
+            text-shadow: 0 0 20px rgba(255,0,0,0.5);
+        }
+
+        .tagline {
+            color: #ff0000;
+            font-size: 1.5em;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1em;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,0,0,0.1);
+            border: 1px solid #ff0000;
+            color: #ff0000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0,0,0,0.9);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #fff;
             text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff0000;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #ff0000;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff0000, transparent);
+            margin: 20px auto;
+        }
+
+        .label {
+            display: inline-block;
+            background: rgba(255,0,0,0.2);
+            color: #ff0000;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,0,0,0.3);
+        }
+
+        /* Missie Sectie */
+        .missie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .missie-card {
+            background: linear-gradient(135deg, rgba(255,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            border: 1px solid rgba(255,0,0,0.3);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .missie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,0,0,0.2);
+            border-color: #ff0000;
+        }
+
+        .missie-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #ff0000;
+        }
+
+        .missie-card h3 {
+            color: #fff;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .missie-card p {
+            color: #ccc;
+            font-size: 0.95em;
+        }
+
+        .quote-box {
+            background: rgba(255,0,0,0.05);
+            border-left: 4px solid #ff0000;
+            padding: 30px;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            color: #ddd;
+            font-size: 1.1em;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            font-size: 4em;
+            color: rgba(255,0,0,0.2);
+            position: absolute;
+            top: -20px;
+            left: 10px;
+        }
+
+        .quote-author {
+            display: block;
+            margin-top: 15px;
+            color: #ff0000;
+            font-style: normal;
             font-weight: bold;
+        }
+
+        /* Activiteiten */
+        .activiteiten-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .activiteit-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,0,0,0.2);
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            align-items: start;
+            gap: 15px;
             transition: all 0.3s;
         }
-        .social-links a:hover {
-            background: #ff0000;
-            color: #000;
+
+        .activiteit-item:hover {
+            background: rgba(255,0,0,0.05);
+            border-color: rgba(255,0,0,0.5);
+            transform: translateX(5px);
         }
-        section { 
-            padding: 4rem 2rem; 
-            max-width: 1000px; 
-            margin: 0 auto; 
+
+        .activiteit-icon {
+            background: rgba(255,0,0,0.2);
+            color: #ff0000;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            flex-shrink: 0;
         }
-        h2 { 
-            color: #ff0000; 
-            font-size: 2rem; 
-            margin-bottom: 2rem; 
-            border-bottom: 2px solid #ff0000; 
-            padding-bottom: 0.5rem;
-            text-transform: uppercase;
+
+        .activiteit-content h3 {
+            color: #fff;
+            margin-bottom: 5px;
+            font-size: 1.2em;
         }
-        .event-featured {
-            background: linear-gradient(135deg, #1a0000 0%, #000 100%);
-            border: 2px solid #ff0000;
-            padding: 3rem;
+
+        .activiteit-content p {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        /* Samenwerkingsmogelijkheden */
+        .samenwerk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        .samenwerk-item {
+            background: linear-gradient(135deg, rgba(20,0,0,0.8) 0%, rgba(0,0,0,0.9) 100%);
+            border: 1px solid rgba(255,0,0,0.3);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .samenwerk-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff0000, transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .samenwerk-item:hover::before {
+            opacity: 1;
+        }
+
+        .samenwerk-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255,0,0,0.2);
+        }
+
+        .samenwerk-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .samenwerk-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,0,0,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff0000;
+            font-size: 1.2em;
+        }
+
+        .samenwerk-item h3 {
+            color: #fff;
+            font-size: 1.3em;
+        }
+
+        .samenwerk-item p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* Video Sectie */
+        .video-sectie {
+            background: linear-gradient(180deg, #000 0%, #0a0000 50%, #000 100%);
+            border-top: 2px solid #ff0000;
+            border-bottom: 2px solid #ff0000;
+            padding: 80px 20px;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border: 3px solid #ff0000;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(255,0,0,0.3);
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a0000 0%, #000 100%);
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .video-placeholder:hover {
+            background: linear-gradient(135deg, #2a0000 0%, #0a0000 100%);
+        }
+
+        .play-button {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,0,0,0.2);
+            border: 3px solid #ff0000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #ff0000;
+            margin-bottom: 20px;
+            transition: all 0.3s;
             box-shadow: 0 0 30px rgba(255,0,0,0.3);
         }
-        .event-date-big {
-            font-size: 4rem;
-            color: #ff0000;
-            font-weight: bold;
+
+        .video-placeholder:hover .play-button {
+            background: rgba(255,0,0,0.4);
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(255,0,0,0.5);
         }
-        .event-name-big {
-            font-size: 2.5rem;
-            margin: 1rem 0;
+
+        /* Voordelen */
+        .voordelen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .voordeel-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: rgba(255,0,0,0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .voordeel-item:hover {
+            background: rgba(255,0,0,0.1);
+            border-color: rgba(255,0,0,0.3);
+            transform: translateX(5px);
+        }
+
+        .voordeel-icon {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: radial-gradient(circle, rgba(255,0,0,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #ff0000;
+        }
+
+        .voordeel-content h3 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .voordeel-content p {
+            color: #aaa;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Contact Sectie */
+        .contact-sectie {
+            background: linear-gradient(180deg, #000 0%, #0a0000 100%);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .contact-sectie::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ff0000, transparent);
+        }
+
+        .contact-title {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 10px;
             text-transform: uppercase;
         }
-        .event-location {
-            color: #888;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        .event-time {
+
+        .contact-title span {
             color: #ff0000;
-            font-size: 1.5rem;
+            text-shadow: 0 0 20px rgba(255,0,0,0.5);
+        }
+
+        .contact-subtitle {
+            color: #999;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info {
+            background: rgba(255,0,0,0.1);
+            border: 1px solid rgba(255,0,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,0,0,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: #fff;
+            border: 2px solid rgba(255,0,0,0.5);
+        }
+
+        .contact-label {
+            color: #ff0000;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-value {
+            color: #fff;
+            font-size: 1.1em;
             font-weight: bold;
         }
-        .about-text p {
-            color: #ccc;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-        .about-text strong { color: #ff0000; }
-        .contact-info p {
-            margin-bottom: 1rem;
-            color: #ccc;
-        }
-        .contact-info a {
-            color: #ff0000;
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 30px;
             text-decoration: none;
-        }
-        .contact-social {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-        }
-        .contact-social h3 {
-            color: #ff0000;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        .dj-form {
-            background: #111;
-            border: 1px solid #333;
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-        .dj-form h3 {
-            color: #ff0000;
-            margin-bottom: 1rem;
-        }
-        .dj-form a {
-            color: #ff0000;
+            font-size: 1.1em;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255,0,0,0.3);
+            border: 2px solid transparent;
         }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,0,0,0.5);
+            border-color: #fff;
+        }
+
+        /* Footer */
         footer {
             background: #000;
             border-top: 1px solid #333;
-            padding: 2rem;
+            padding: 30px 20px;
             text-align: center;
             color: #666;
+            font-size: 0.9em;
         }
-        footer .logo-footer {
-            color: #ff0000;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        footer .social-links-footer {
-            margin: 1rem 0;
-        }
-        footer .social-links-footer a {
-            color: #666;
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s;
-        }
-        footer .social-links-footer a:hover {
-            color: #ff0000;
-        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            h1 { font-size: 1.8rem; }
-            .logo-text { font-size: 1rem; }
-            .logo-box { width: 200px; height: 200px; }
-            .event-date-big { font-size: 2.5rem; }
-            .event-name-big { font-size: 1.5rem; }
+            h1 { font-size: 2em; }
+            .tagline { font-size: 1.2em; }
+            .section-title { font-size: 1.8em; }
+            .samenwerk-grid { grid-template-columns: 1fr; }
+            .activiteiten-grid { grid-template-columns: 1fr; }
+            .voordelen-grid { grid-template-columns: 1fr; }
+            nav ul { gap: 15px; }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="container">
-            <a href="#" class="logo-text">LUNAR HOWL EVENTS</a>
-            <div class="nav-links">
-                <a href="#event">EVENT</a>
-                <a href="#about">ABOUT</a>
-                <a href="#contact">CONTACT</a>
-            </div>
+    <header>
+        <div class="logo-container">
+            <div class="logo-placeholder"></div>
         </div>
+        <h1>LUNAR HOWL</h1>
+        <div class="tagline">EVENTS</div>
+        <p class="subtitle">JONG TALENT • ELEKTRONISCHE MUZIEK • SAMEN GROEIEN</p>
+        <span class="badge">Feitelijke Vereniging • Borgloon</span>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#missie">Onze Missie</a></li>
+            <li><a href="#activiteiten">Wat doen we?</a></li>
+            <li><a href="#samenwerken">Samenwerken</a></li>
+            <li><a href="#video">Presentatie</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <section class="hero">
-        <div>
-            <div class="logo-box">
-                <img src="IMG_6358.PNG" alt="Lunar Howl Events Logo">
-            </div>
-            <h1>LUNAR HOWL EVENTS</h1>
-            <p class="subtitle">Underground Electronic Music Collective</p>
-            <a href="#event" class="btn">UPCOMING EVENT</a>
-            <a href="#contact" class="btn">JOIN THE PACK</a>
-            
-            <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61578676778927" target="_blank" title="Facebook">f</a>
-                <a href="https://instagram.com/theinfernoroom2025" target="_blank" title="Instagram">IG</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="event">
-        <h2>THE INFERNO ROOM</h2>
-        <div class="event-featured">
-            <div class="event-date-big">21 MARCH 2026</div>
-            <div class="event-name-big">THE INFERNO ROOM</div>
-            <div class="event-location">@ RUMBA</div>
-            <div class="event-time">DOORS 22:00 - 06:00</div>
-            <p style="color: #888; margin-top: 2rem; font-style: italic;">A refined electronic music experience</p>
-            
-            <a href="https://theinfernoroom.eventsquare.store/rng3ingd4is6" target="_blank" class="btn btn-solid" style="margin-top: 2rem;">
-                GET TICKETS
-            </a>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2>ABOUT US</h2>
-        <div class="about-text">
-            <p><strong>Lunar Howl Events</strong> is a non-profit association (feitelijke vereniging) dedicated to nurturing emerging talent in the electronic music scene. Founded in Borgloon, Belgium.</p>
-            <p>We believe in the raw power of underground culture. Through coaching, showcases, workshops, and events, we create a safe environment where talent can grow.</p>
-            <p>Our mission: <em>support the next generation of electronic music artists</em>.</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>JOIN THE PACK</h2>
-        <div class="contact-info">
-            <p>Want to play at our events? Contact us:</p>
-            <p><strong>Email:</strong> <a href="mailto:lunar.howl2025@gmail.com">lunar.howl2025@gmail.com</a></p>
-            <p><strong>Phone:</strong> 0456/90.18.90</p>
-            <p><strong>Address:</strong> Tongersesteenweg 173, 3840 Borgloon</p>
-        </div>
+    <section id="missie">
+        <div class="label">Onze Waarden</div>
+        <h2 class="section-title">Onze Missie</h2>
         
-        <div class="contact-social">
-            <h3>FOLLOW US</h3>
-            <p>Stay updated on upcoming events and behind the scenes content.</p>
-            <div class="social-links" style="margin-top: 1rem;">
-                <a href="https://www.facebook.com/profile.php?id=61578676778927" target="_blank">Facebook</a>
-                <a href="https://instagram.com/theinfernoroom2025" target="_blank">Instagram</a>
+        <div class="missie-grid">
+            <div class="missie-card fade-in">
+                <div class="missie-icon">🤝</div>
+                <h3>Ondersteunen</h3>
+                <p>We bieden een stevig fundament waarop jong talent kan bouwen</p>
+            </div>
+            
+            <div class="missie-card fade-in">
+                <div class="missie-icon">🌱</div>
+                <h3>Ontwikkelen</h3>
+                <p>We helpen DJ's groeien in techniek, branding en podiumervaring</p>
+            </div>
+            
+            <div class="missie-card fade-in">
+                <div class="missie-icon">📢</div>
+                <h3>Promoten</h3>
+                <p>We zetten jong talent in de schijnwerpers bij het grote publiek</p>
             </div>
         </div>
+
+        <div class="quote-box fade-in">
+            "We geloven in het geven van kansen aan nieuw talent en het creëren van een community waar kennis en ervaring worden gedeeld."
+            <span class="quote-author">— Het Lunar Howl Events Team</span>
+        </div>
+    </section>
+
+    <section id="activiteiten" style="background: rgba(0,0,0,0.5);">
+        <div class="label">Onze Activiteiten</div>
+        <h2 class="section-title">Wat doen we?</h2>
         
-        <div class="dj-form">
-            <h3>🎧 DJ APPLICATION</h3>
-            <p>Are you an emerging DJ? Send us your details and a 60-minute mix recorded specifically for Lunar Howl Events.</p>
-            <p style="margin-top: 1rem;"><strong>Required:</strong></p>
-            <ul style="color: #ccc; margin-left: 1.5rem; margin-top: 0.5rem;">
-                <li>Personal information & contact details</li>
-                <li>Social media links (Instagram, Facebook, SoundCloud)</li>
-                <li>60-minute exclusive mix (download link)</li>
-                <li>Previous experience & repertoire</li>
-            </ul>
-            <p style="margin-top: 1rem;">
-                <a href="mailto:lunar.howl2025@gmail.com?subject=DJ%20Application%20-%20[Your%20Artist%20Name]">
-                    📧 APPLY NOW via Email
+        <div class="activiteiten-grid">
+            <div class="activiteit-item">
+                <div class="activiteit-icon">🎧</div>
+                <div class="activiteit-content">
+                    <h3>Coaching & Begeleiding</h3>
+                    <p>Persoonlijke begeleiding van DJ's in hun ontwikkeling</p>
+                </div>
+            </div>
+
+            <div class="activiteit-item">
+                <div class="activiteit-icon">📅</div>
+                <div class="activiteit-content">
+                    <h3>Events & Showcases</h3>
+                    <p>Organisatie van elektronische muziek-events</p>
+                </div>
+            </div>
+
+            <div class="activiteit-item">
+                <div class="activiteit-icon">🎓</div>
+                <div class="activiteit-content">
+                    <h3>Workshops</h3>
+                    <p>Leerzame sessies over mixing en productie</p>
+                </div>
+            </div>
+
+            <div class="activiteit-item">
+                <div class="activiteit-icon">🛠️</div>
+                <div class="activiteit-content">
+                    <h3>Materiaalverhuur</h3>
+                    <p>Professioneel licht- en geluidsmateriaal</p>
+                </div>
+            </div>
+
+            <div class="activiteit-item">
+                <div class="activiteit-icon">👋</div>
+                <div class="activiteit-content">
+                    <h3>Vrijwilligerswerking</h3>
+                    <p>Een hecht team dat events mogelijk maakt</p>
+                </div>
+            </div>
+
+            <div class="activiteit-item">
+                <div class="activiteit-icon">🎵</div>
+                <div class="activiteit-content">
+                    <h3>DJ-Traject</h3>
+                    <p>Intake → Techniek → Branding → Showcase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="samenwerken">
+        <div class="label">Partnerschappen</div>
+        <h2 class="section-title">Samenwerkingsmogelijkheden</h2>
+        
+        <div class="samenwerk-grid">
+            <div class="samenwerk-item">
+                <div class="samenwerk-header">
+                    <div class="samenwerk-icon">🤝</div>
+                    <h3>Mede-Organisatie</h3>
+                </div>
+                <p>Samen events organiseren. Wij zorgen voor het talent en de promotie, jij voor de locatie en logistiek.</p>
+            </div>
+
+            <div class="samenwerk-item">
+                <div class="samenwerk-header">
+                    <div class="samenwerk-icon">🎙️</div>
+                    <h3>Programmering</h3>
+                </div>
+                <p>Jong talent programmeren in je club, café of zomerbar. Frisse acts die je publiek verrassen.</p>
+            </div>
+
+            <div class="samenwerk-item">
+                <div class="samenwerk-header">
+                    <div class="samenwerk-icon">⭐</div>
+                    <h3>Showcases</h3>
+                </div>
+                <p>Openingsacts en showcases op festivals. Laat ons talent je event opstarten met energie.</p>
+            </div>
+
+            <div class="samenwerk-item">
+                <div class="samenwerk-header">
+                    <div class="samenwerk-icon">📻</div>
+                    <h3>Radio & Media</h3>
+                </div>
+                <p>Live-sets, interviews en guest mixes voor radiostations. Promotie voor ons talent, content voor jou.</p>
+            </div>
+
+            <div class="samenwerk-item">
+                <div class="samenwerk-header">
+                    <div class="samenwerk-icon">🔊</div>
+                    <h3>Materiaalverhuur</h3>
+                </div>
+                <p>Professioneel licht- en geluidsmateriaal huren voor je kleinere events en sessies.</p>
+            </div>
+
+            <div class="samenwerk-item">
+                <div class="samenwerk-header">
+                    <div class="samenwerk-icon">💡</div>
+                    <h3>Maatwerk</h3>
+                </div>
+                <p>Heb je een ander idee? We denken graag mee over een samenwerking op maat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO SECTIE - Hier komt je presentatiefilmpje -->
+    <section id="video" class="video-sectie">
+        <div class="video-container">
+            <div class="label">Presentatie</div>
+            <h2 class="section-title" style="color: #fff;">Bekijk onze verhaal</h2>
+            <p style="color: #999; margin-bottom: 30px; font-size: 1.1em;">Ontdek wie we zijn en wat LUNAR HOWL Events voor jou kan betekenen</p>
+            
+            <div class="video-wrapper">
+                <!-- OPTIE 1: Als je de video op YouTube zet, vervang dan de onderstaande link door een iframe -->
+                <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JOUW_CODE_HIER" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe> -->
+                
+                <!-- OPTIE 2: Directe link naar het MP4 bestand (nu actief) -->
+                <a href="LUNAR_HOWL_PRESENTATIE_AF_2.mp4" target="_blank" class="video-placeholder">
+                    <div class="play-button">▶</div>
+                    <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 10px;">Klik om presentatie te bekijken</h3>
+                    <p style="color: #999;">LUNAR HOWL Events - Promotiefilm</p>
                 </a>
+            </div>
+            
+            <p style="color: #666; margin-top: 20px; font-size: 0.9em;">
+                💡 <strong>Tip:</strong> Upload je video naar YouTube voor een professionelere ingesloten speler, 
+                of houd deze link naar het MP4 bestand voor directe weergave.
             </p>
         </div>
     </section>
 
-    <footer>
-        <div class="logo-footer">LUNAR HOWL EVENTS</div>
-        <div class="social-links-footer">
-            <a href="https://www.facebook.com/profile.php?id=61578676778927" target="_blank">Facebook</a>
-            <a href="https://instagram.com/theinfernoroom2025" target="_blank">Instagram</a>
+    <section id="voordelen" style="background: rgba(0,0,0,0.3);">
+        <div class="label">Voordelen</div>
+        <h2 class="section-title">Wat bieden wij jou?</h2>
+        
+        <div class="voordelen-grid">
+            <div class="voordeel-item">
+                <div class="voordeel-icon">👥</div>
+                <div class="voordeel-content">
+                    <h3>Pool van Talent</h3>
+                    <p>Toegang tot een groep gemotiveerde, jonge DJ's klaar om te spelen.</p>
+                </div>
+            </div>
+
+            <div class="voordeel-item">
+                <div class="voordeel-icon">⚡</div>
+                <div class="voordeel-content">
+                    <h3>Frisse Energie</h3>
+                    <p>Nieuwe geluiden en nieuwe gezichten die je programmering verrijken.</p>
+                </div>
+            </div>
+
+            <div class="voordeel-item">
+                <div class="voordeel-icon">📢</div>
+                <div class="voordeel-content">
+                    <h3>Promotie Support</h3>
+                    <p>We helpen mee met marketing en promotie via onze kanalen.</p>
+                </div>
+            </div>
+
+            <div class="voordeel-item">
+                <div class="voordeel-icon">🎓</div>
+                <div class="voordeel-content">
+                    <h3>Professionele Coaching</h3>
+                    <p>Ons talent wordt begeleid, dus jij krijgt professionele artiesten.</p>
+                </div>
+            </div>
+
+            <div class="voordeel-item">
+                <div class="voordeel-icon">🤝</div>
+                <div class="voordeel-content">
+                    <h3>Flexibele Samenwerking</h3>
+                    <p>We denken mee en passen ons aan jouw wensen en mogelijkheden aan.</p>
+                </div>
+            </div>
+
+            <div class="voordeel-item">
+                <div class="voordeel-icon">❤️</div>
+                <div class="voordeel-content">
+                    <h3>Betrokken Community</h3>
+                    <p>Ons netwerk komt ondersteunen, wat zorgt voor extra publiek en sfeer.</p>
+                </div>
+            </div>
         </div>
-        <p>Feitelijke Vereniging zonder Winstoogmerk</p>
-        <p>&copy; 2025 Lunar Howl Events. All rights reserved.</p>
+    </section>
+
+    <section id="contact" class="contact-sectie">
+        <h2 class="contact-title">Laten we <span>samenvoegen!</span></h2>
+        <p class="contact-subtitle">Lunar Howl Events staat klaar om samen met jou de elektronische muziekscene te verrijken met fris talent.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-label">E-mail</div>
+                <div class="contact-value">lunar.howl2025@gmail.com</div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div class="contact-label">Telefoon</div>
+                <div class="contact-value">0456/90.18.90</div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-label">Adres</div>
+                <div class="contact-value">Tongersesteenweg 173, 3840 Borgloon</div>
+            </div>
+        </div>
+        
+        <a href="mailto:lunar.howl2025@gmail.com" class="cta-button">Neem contact op en ontdek de mogelijkheden</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LUNAR HOWL EVENTS - Feitelijke Vereniging | Borgloon</p>
+        <p style="margin-top: 10px; font-size: 0.8em;">Jong talent • Elektronische muziek • Samen groeien</p>
     </footer>
 
 </body>
