@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUNAR HOWL EVENTS | Feitelijke Vereniging Borgloon</title>
     <style>
-      src="IMG_6358.PNG"{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -46,27 +46,14 @@
             position: relative;
         }
 
-        .logo-placeholder {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
-            background: #000;
-            border: 3px solid #ff0000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            color: #ff0000;
-            box-shadow: 0 0 30px rgba(255,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-placeholder::after {
-            content: '🐺';
-            font-size: 4em;
-            filter: drop-shadow(0 0 10px #ff0000);
+        /* JOUW LOGO - IMG_6358.PNG */
+        .logo-img {
+            width: 250px;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 30px rgba(255,0,0,0.6));
+            border-radius: 10px;
         }
 
         h1 {
@@ -83,6 +70,7 @@
             font-size: 1.5em;
             letter-spacing: 2px;
             margin-bottom: 10px;
+            font-weight: bold;
         }
 
         .subtitle {
@@ -104,7 +92,7 @@
 
         /* Navigation */
         nav {
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             padding: 15px;
             position: sticky;
             top: 0;
@@ -177,7 +165,8 @@
         }
 
         .label {
-            display: inline-block;
+            display: table;
+            margin: 0 auto 15px auto;
             background: rgba(255,0,0,0.2);
             color: #ff0000;
             padding: 5px 15px;
@@ -185,7 +174,6 @@
             font-size: 0.8em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 15px;
             border: 1px solid rgba(255,0,0,0.3);
         }
 
@@ -215,7 +203,6 @@
         .missie-icon {
             font-size: 2.5em;
             margin-bottom: 15px;
-            color: #ff0000;
         }
 
         .missie-card h3 {
@@ -397,7 +384,7 @@
             box-shadow: 0 0 40px rgba(255,0,0,0.3);
         }
 
-        .video-placeholder {
+        .video-link {
             position: absolute;
             top: 0;
             left: 0;
@@ -413,7 +400,7 @@
             transition: all 0.3s;
         }
 
-        .video-placeholder:hover {
+        .video-link:hover {
             background: linear-gradient(135deg, #2a0000 0%, #0a0000 100%);
         }
 
@@ -433,7 +420,7 @@
             box-shadow: 0 0 30px rgba(255,0,0,0.3);
         }
 
-        .video-placeholder:hover .play-button {
+        .video-link:hover .play-button {
             background: rgba(255,0,0,0.4);
             transform: scale(1.1);
             box-shadow: 0 0 50px rgba(255,0,0,0.5);
@@ -613,22 +600,8 @@
             .samenwerk-grid { grid-template-columns: 1fr; }
             .activiteiten-grid { grid-template-columns: 1fr; }
             .voordelen-grid { grid-template-columns: 1fr; }
-            nav ul { gap: 15px; }
-        }
-
-        /* Animations */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            .logo-img { width: 200px; }
+            nav ul { gap: 15px; font-size: 0.8em; }
         }
     </style>
 </head>
@@ -636,7 +609,8 @@
 
     <header>
         <div class="logo-container">
-            <div class="logo-placeholder"></div>
+            <!-- JOUW LOGO: IMG_6358.PNG -->
+            <img src="IMG_6358.PNG" alt="Lunar Howl Logo" class="logo-img">
         </div>
         <h1>LUNAR HOWL</h1>
         <div class="tagline">EVENTS</div>
@@ -659,26 +633,26 @@
         <h2 class="section-title">Onze Missie</h2>
         
         <div class="missie-grid">
-            <div class="missie-card fade-in">
+            <div class="missie-card">
                 <div class="missie-icon">🤝</div>
                 <h3>Ondersteunen</h3>
                 <p>We bieden een stevig fundament waarop jong talent kan bouwen</p>
             </div>
             
-            <div class="missie-card fade-in">
+            <div class="missie-card">
                 <div class="missie-icon">🌱</div>
                 <h3>Ontwikkelen</h3>
                 <p>We helpen DJ's groeien in techniek, branding en podiumervaring</p>
             </div>
             
-            <div class="missie-card fade-in">
+            <div class="missie-card">
                 <div class="missie-icon">📢</div>
                 <h3>Promoten</h3>
                 <p>We zetten jong talent in de schijnwerpers bij het grote publiek</p>
             </div>
         </div>
 
-        <div class="quote-box fade-in">
+        <div class="quote-box">
             "We geloven in het geven van kansen aan nieuw talent en het creëren van een community waar kennis en ervaring worden gedeeld."
             <span class="quote-author">— Het Lunar Howl Events Team</span>
         </div>
@@ -794,29 +768,21 @@
         </div>
     </section>
 
-    <!-- VIDEO SECTIE - Hier komt je presentatiefilmpje -->
+    <!-- VIDEO SECTIE - Jouw presentatiefilmpje -->
     <section id="video" class="video-sectie">
         <div class="video-container">
             <div class="label">Presentatie</div>
-            <h2 class="section-title" style="color: #fff;">Bekijk onze verhaal</h2>
+            <h2 class="section-title" style="color: #fff;">Bekijk ons verhaal</h2>
             <p style="color: #999; margin-bottom: 30px; font-size: 1.1em;">Ontdek wie we zijn en wat LUNAR HOWL Events voor jou kan betekenen</p>
             
             <div class="video-wrapper">
-                <!-- OPTIE 1: Als je de video op YouTube zet, vervang dan de onderstaande link door een iframe -->
-                <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JOUW_CODE_HIER" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe> -->
-                
-                <!-- OPTIE 2: Directe link naar het MP4 bestand (nu actief) -->
-                <a href="LUNAR_HOWL_PRESENTATIE_AF_2.mp4" target="_blank" class="video-placeholder">
+                <!-- JOUW VIDEO: LUNAR HOWL PRESENTATIE AF 2.mp4 -->
+                <a href="LUNAR%20HOWL%20PRESENTATIE%20AF%202.mp4" target="_blank" class="video-link">
                     <div class="play-button">▶</div>
                     <h3 style="color: #fff; font-size: 1.5em; margin-bottom: 10px;">Klik om presentatie te bekijken</h3>
                     <p style="color: #999;">LUNAR HOWL Events - Promotiefilm</p>
                 </a>
             </div>
-            
-            <p style="color: #666; margin-top: 20px; font-size: 0.9em;">
-                💡 <strong>Tip:</strong> Upload je video naar YouTube voor een professionelere ingesloten speler, 
-                of houd deze link naar het MP4 bestand voor directe weergave.
-            </p>
         </div>
     </section>
 
